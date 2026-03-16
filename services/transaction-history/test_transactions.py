@@ -1,8 +1,16 @@
 import pytest
-# Removed sys.path modification
+import sys
+import os
 
-from .main import app, get_db # Updated import to relative
-from .models import Base, Account, Transaction, TransactionType # Updated import to relative
+# Get the directory of the current test file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Navigate up two levels to reach the repository root (from services/transaction_history/ to repo_root/)
+repo_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+# Add the repository root to sys.path
+sys.path.insert(0, repo_root)
+
+from services.transaction_history.main import app, get_db 
+from services.transaction_history.models import Base, Account, Transaction, TransactionType 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timedelta
