@@ -1,12 +1,8 @@
 import pytest
-import sys
-import os
+# Removed sys.path modification
 
-# Add the repository root to sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-
-from services.transaction_history.main import app, get_db 
-from services.transaction_history.models import Base, Account, Transaction, TransactionType 
+from .main import app, get_db # Updated import to relative
+from .models import Base, Account, Transaction, TransactionType # Updated import to relative
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timedelta
