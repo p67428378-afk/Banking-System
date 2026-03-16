@@ -7,7 +7,7 @@ Created: 2023-10-27
 
 from flask import Flask, request, jsonify, make_response
 from datetime import datetime, timedelta
-from models import SessionLocal, Transaction, TransactionType
+from src.models import SessionLocal, Transaction, TransactionType
 
 app = Flask(__name__)
 
