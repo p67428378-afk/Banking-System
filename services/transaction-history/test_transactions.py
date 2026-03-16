@@ -1,6 +1,6 @@
 import pytest
-from services.transaction_history.main import app, get_db # Updated import
-from services.transaction_history.models import Base, Account, Transaction, TransactionType # Updated import
+from .main import app, get_db # Updated import to relative
+from .models import Base, Account, Transaction, TransactionType # Updated import to relative
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timedelta
