@@ -1,4 +1,10 @@
 import pytest
+import sys
+import os
+
+# Add the repository root to sys.path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
 from services.transaction_history.main import app, get_db 
 from services.transaction_history.models import Base, Account, Transaction, TransactionType 
 from sqlalchemy import create_engine
