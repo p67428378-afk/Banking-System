@@ -2,15 +2,13 @@ import pytest
 import sys
 import os
 
-# Get the directory of the current test file
-current_dir = os.path.dirname(os.path.abspath(__file__))
-# Navigate up two levels to reach the repository root (from services/transaction_history/ to repo_root/)
-repo_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
-# Add the repository root to sys.path
-sys.path.insert(0, repo_root)
+# Add the directory containing main.py and models.py to sys.path
+# This assumes test_transactions.py is in the same directory as main.py and models.py
+# In the sandbox, test_dev_sandbox.py is at the root. We need to add the path to services/transaction_history/ to sys.path
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'services', 'transaction_history'))
 
-from services.transaction_history.main import app, get_db 
-from services.transaction_history.models import Base, Account, Transaction, TransactionType 
+from main import app, get_db 
+from models import Base, Account, Transaction, TransactionType 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime, timedelta
