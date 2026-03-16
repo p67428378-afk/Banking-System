@@ -8,7 +8,7 @@ Created: 2023-10-27
 from flask import Flask, request, jsonify
 from datetime import datetime, timedelta
 from sqlalchemy import and_, or_
-from models import SessionLocal, Transaction, TransactionType, init_db
+from src.models import SessionLocal, Transaction, TransactionType, init_db
 
 app = Flask(__name__)
 
